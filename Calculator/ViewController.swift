@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         let digit = sender.currentTitle!
         let textCurrentlyInDisplay = display!.text!
         display!.text = textCurrentlyInDisplay + digit
+        print("digit \(digit) presed")
     }
     
 
