@@ -27,17 +27,19 @@ class ViewController: UIViewController {
         }
     }
     
+    //Computed variable that gets the user input as a Double and sets it as a String (Label)
     var displayValue: Double {
         get {
             return Double(display.text!)!
         }
         set {
-            display.text = String(newValue)
+            //If the result has trailling zeros, remove them.
+            display.text = newValue.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", newValue) : String(newValue)
         }
     }
-    
-    private var brain = CalculatorBrain()
 
+    private var brain = CalculatorBrain()
+    
     @IBAction func performOperation(_ sender: UIButton) {
         if userIsInTheMiddleOfTyping {
             brain.setOperand(displayValue)
@@ -49,8 +51,7 @@ class ViewController: UIViewController {
         if let result = brain.result {
             displayValue = result
         }
-    }
-    
-    
+    } 
 }
+
 
