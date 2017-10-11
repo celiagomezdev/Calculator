@@ -19,10 +19,8 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTyping {
             let textCurrentlyInDisplay = display.text!
             display.text = textCurrentlyInDisplay + digit
-            print("User is in the middle of typing. Digit \(digit) pressed")
         } else {
             display.text = digit
-            print("User is not in the middle of typing. Digit \(digit) pressed")
             userIsInTheMiddleOfTyping = true
         }
     }
@@ -33,7 +31,7 @@ class ViewController: UIViewController {
             return Double(display.text!)!
         }
         set {
-            //If the result has trailling zeros, remove them.
+            //If the result has trailing zeros, remove them.
             display.text = newValue.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", newValue) : String(newValue)
         }
     }
@@ -53,5 +51,3 @@ class ViewController: UIViewController {
         }
     } 
 }
-
-
